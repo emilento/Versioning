@@ -5,15 +5,14 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Copyright>© Royal Mail Group Limited 2022</Copyright>
     <Company>Royal Mail Group</Company>
-    <!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Deterministic>false</Deterministic>
-    <WriteVersionInfoToBuildLog>true</WriteVersionInfoToBuildLog>-->
   </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <PackageReference Include="GitVersion.MsBuild" Version="5.11.1">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-  </ItemGroup>-->
+  </ItemGroup>
 
 </Project>

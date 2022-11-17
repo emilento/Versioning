@@ -16,5 +16,7 @@ public static class GitVersionInformationProvider
 
     public static string Sha => GetFieldValue("Sha") ?? string.Empty;
 
+    public static string InformationalVersion => GetFieldValue("InformationalVersion") ?? string.Empty;
+
     private static string? GetFieldValue(string name) => GitVersionInformationType?.GetField(name)?.GetValue(null)?.ToString();
 }
