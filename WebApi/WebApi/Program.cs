@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
-using WebApi.Providers;
 using WebApi.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,9 +32,6 @@ builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 
 var app = builder.Build();
 
-var logger = app.Services.GetRequiredService<ILogger<Program>>();
-logger.LogInformation(GitVersionInformationProvider.InformationalVersion);
-
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
 // Configure the HTTP request pipeline.
@@ -44,11 +40,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions.Reverse())
+        foreach (var groupName in apiVersionDescriptionProvider.ApiVersionDescriptions.Reverse().Select(d => d.GroupName))
         {
             options.SwaggerEndpoint(
-                $"/swagger/{description.GroupName}/swagger.json",
-                description.GroupName.ToLowerInvariant());
+                $"/swagger/{groupName}/swagger.json",
+                groupName.ToLowerInvariant());
         }
     });
 }

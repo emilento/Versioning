@@ -6,7 +6,6 @@
     <Copyright>© Royal Mail Group Limited 2022</Copyright>
     <Company>Royal Mail Group</Company>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Deterministic>false</Deterministic>
   </PropertyGroup>
 
   <ItemGroup>
